@@ -17,41 +17,50 @@ operations on encrypted data without exposing the plaintext, ensuring data priva
 computational needs. By employing Microsoft SEAL’s Python library, RabbitMQ as a message
 broker, and secure communication protocols, the project exemplifies a practical solution for
 securing IoT device communications in a fog/cloud architecture.
+
 ## Setup
 1. Ensure Docker and Docker Compose Plugin are installed.
 2. Install Python Virtual Environment.
 3. Clone this repository.
+
 bash```
 git clone git@github.com:rios240/IoT-HE.git
 cd IoT-HE```
-5. 5. Create a virtual environment and install packages.
+4. Create a virtual environment and install packages.
+
 bash```
 cd python
 python3 -m venv env
 source env/bin/activate
 pip3 install -r requirements.txt```
+
 ## Running
 1. You will need at least four terminal tabs/windows open: one for running the docker container, one
 for running the IoT Devices, one for running the Fog Nodes, and one for running the Data Collector node.
 3. In the first tab/window start the docker container.
+
 bash```
 cd docker
 docker compose up```
-4. In the second tab/window start the IoT devices
+4. In the second tab/window start the IoT devices.
+
 bash```
 cd python/Device
 source ../env/bin/activate
 python3 main.py```
 5. In the third tab/window start the Fog Nodes.
+
 bash```
 cd python/FogNode
 source ../env/bin/activate
 python3 main.py```
 6. In the fourth tab/window start the Data Collector node.
+
 bash```
 cd python/DataCollector
 source ../env/bin/activate
 python3 main.py```
+
 ## Output
 `device.py`, `fognode.py`, and `datacollector.py` output a lot of log data. Most of it can be ignored but 
 pay attention to INFO logs with the message "### Published message..." and "### Received message..." as 
