@@ -1,0 +1,20 @@
+name: rabbitmq-fog
+
+services:
+  rabbitmq:
+    build: .
+    container_name: rabbit-fog
+    hostname: rabbit-fog.iot-he.com
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=rabbit
+      - RABBITMQ_CONFIG_FILES=/etc/rabbitmq/conf.d
+    ports:
+      - 5671:5671
+      - 15671:15671
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
